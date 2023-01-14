@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({ result }) {
+  console.log( result );
   return (
     <div className={styles.container}>
       <Head>
@@ -67,3 +68,19 @@ export default function Home() {
     </div>
   )
 }
+
+export const getServerSideProps = async (context) => {
+  let result = {};
+
+  await fetch('localhost:8080/api/test')
+  .then((res) => {
+    result = res;
+  })
+  .catch((err) => {
+    result = err;
+  })
+
+  return {
+    props: { result }
+  }
+};
