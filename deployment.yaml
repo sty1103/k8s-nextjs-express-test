@@ -7,11 +7,6 @@ metadata:
     tier: frontend
     environment: production
 spec:
-  selector:
-    matchLabels:
-      app: frontweb-lesson
-      tier: frontend
-      environment: production
   template:
     metadata:
       labels:
