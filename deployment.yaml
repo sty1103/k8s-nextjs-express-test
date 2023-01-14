@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontweb-lesson-prod
+  labels:
+    app: frontweb-lesson
+    tier: frontend
+    environment: production
+spec:
+  selector:
+    matchLabels:
+      app: frontweb-lesson
+  template:
+    metadata:
+      labels:
+        app: frontweb-lesson
+        tier: frontend
+        environment: production
+    spec:
+      containers:
+      - name: frontweb-lesson-prod-app
+        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:test-1
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontweb-lesson-prod-svc
+spec:
+  selector:
+    app: frontweb-lesson
+    tier: frontend
+    environment: production
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  type: LoadBalancer
+  loadBalancerIP: "35.243.125.162"
