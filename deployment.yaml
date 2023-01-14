@@ -2,13 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontweb-lesson-prod
-  labels:
-    app: frontweb-lesson
-    tier: frontend
-    environment: production
 spec:
+  selector:
+    # Deployment 오브젝트가 파드를 관리할 때 사용하는 매핑 정보
+    matchLabels:
+      app: frontweb-lesson
+      tier: frontend
+      environment: production
   template:
     metadata:
+      # 생설될 파드의 라벨 정보
       labels:
         app: frontweb-lesson
         tier: frontend
@@ -25,6 +28,7 @@ kind: Service
 metadata:
   name: frontweb-lesson-prod-svc
 spec:
+  # 외부 트래픽을 전달할 파드의 라벨 정보
   selector:
     app: frontweb-lesson
     tier: frontend
