@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: frontweb-lesson-prod-app
-        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:test-4
+        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:test-5
         ports:
         - containerPort: 3000
 ---
@@ -28,11 +28,9 @@ kind: Service
 metadata:
   name: frontweb-lesson-prod-svc
 spec:
-  # 외부 트래픽을 전달할 오브젝트의 라벨 정보(여기선 Deployment 오브젝트가 대상)
+  # 외부 트래픽을 전달할 파드의 라벨 정보
   selector:
     app: frontweb-lesson
-    tier: frontend
-    environment: production
   ports:
   - name: http
     port: 80
