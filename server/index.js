@@ -1,10 +1,16 @@
 const express = require('express');
+const cors = require('cors');
  
 const app = express();
 const port = 8080;
- 
+
 app.get('/api/test', (req, res) => {
-  res.send({ hello: 'world'});
+  try {
+    res.status(200).send({ hello: 'world'});
+  } catch {
+    res.status(400).send('something went wrong');
+  }
+  
 })
  
 app.listen(port, () => {
