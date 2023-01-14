@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      { JSON.stringify(data?.data) }
+      { JSON.stringify(data?.data) }1
     </>
   )
 }
