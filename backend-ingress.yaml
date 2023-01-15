@@ -7,21 +7,21 @@ spec:
   rules:
   - http:
       paths:
-      - path: "/"
+      - path: /
         pathType: ImplementationSpecific
         backend:
           service:
             name: frontweb-lesson-prod-svc
             port:
               number: 80
-      - path: "/api/blue/*"
+      - path: /api/blue
         pathType: Prefix
         backend:
           service:
             name: backweb-lesson-users-svc
             port:
               number: 8080
-      - path: "/api/green/*"
+      - path: /api/green
         pathType: Prefix
         backend:
           service:
