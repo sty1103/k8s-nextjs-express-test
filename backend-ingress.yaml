@@ -15,7 +15,7 @@ spec:
             port: 80
     - http:
       paths:
-      - path: /blue
+      - path: /api/blue
         pathType: Prefix
         backend:
           service:
@@ -24,7 +24,7 @@ spec:
               number: 8080
     - http:
       paths:
-      - path: /green
+      - path: /api/green
         pathType: Prefix
         backend:
           service:
