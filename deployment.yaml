@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontweb-lesson-prod
+  # Deployment 오브젝트의 라벨 정보
   labels:
     app: frontweb-lesson
     tier: frontend
