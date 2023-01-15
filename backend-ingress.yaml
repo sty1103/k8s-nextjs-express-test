@@ -9,10 +9,16 @@ spec:
   - http:
       paths:
       - path: /users/*
+        pathType: Prefix
         backend:
-          serviceName: backweb-lesson-users-svc
-          servicePort: 80
+          service:
+            - name: backweb-lesson-users-svc
+            port:
+              number: 80
       - path: /products/*
+        pathType: Prefix
         backend:
-          serviceName: backweb-lesson-products-svc
-          servicePort: 80
+          service:
+            name: backweb-lesson-products-svc
+            port:
+              number: 80
