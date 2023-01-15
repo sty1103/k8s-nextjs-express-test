@@ -7,11 +7,11 @@ import styles from '../styles/Home.module.css'
 const queryClient = new QueryClient();
 
 export default function Home() {
-  const { isLoading, err, data } = useQuery('test', () => axios('http://localhost:8080/api/test'))
+  const { isLoading, err, data } = useQuery('test', () => axios('http://34.146.232.206:8080/api/test'))
 
   return (
     <>
-      { JSON.stringify(data?.data) }
+      { data && <div>{JSON.stringify(data)}</div> }
     </>
   )
 }

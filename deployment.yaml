@@ -29,13 +29,12 @@ kind: Service
 metadata:
   name: frontweb-lesson-prod-svc
 spec:
-  # 외부 트래픽을 전달할 파드의 라벨 정보
+  # 서비스를 연결할 포드 라벨 정보
   selector:
     app: frontweb-lesson
+  type: NodePort
   ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 3000
-  type: LoadBalancer
-  loadBalancerIP: "35.243.125.162"
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 3000
