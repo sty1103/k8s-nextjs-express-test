@@ -20,12 +20,12 @@ spec:
           service:
             name: backweb-lesson-users-svc
             port:
-              number: 8080
+              number: 80
       - path: /api/green
         pathType: Prefix
         backend:
           service:
             name: backweb-lesson-products-svc
             port:
-              number: 8080
+              number: 80
 
