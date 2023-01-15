@@ -1,25 +1,33 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-path-basic
+  name: lesson-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   ingressClassName: nginx # nginx ingress controller와 연결에 필요
   rules:
-    - http:
+  - http:
       paths:
-      - path: /blue
+      - path: "/"
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: frontweb-lesson-prod-svc
+            port:
+              number: 80
+      - path: "/users/*"
         pathType: Prefix
         backend:
           service:
             name: backweb-lesson-users-svc
             port:
               number: 8080
-    - http:
-      paths:
-      - path: /green
+      - path: "/products/*"
         pathType: Prefix
         backend:
           service:
             name: backweb-lesson-products-svc
             port:
               number: 8080
+
