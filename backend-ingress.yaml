@@ -13,8 +13,6 @@ spec:
           service:
             name: frontweb-lesson-prod-svc
             port: 80
-    - http:
-      paths:
       - path: /api/blue
         pathType: Prefix
         backend:
@@ -22,8 +20,6 @@ spec:
             name: backweb-lesson-users-svc
             port:
               number: 8080
-    - http:
-      paths:
       - path: /api/green
         pathType: Prefix
         backend:
