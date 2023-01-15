@@ -7,20 +7,16 @@ spec:
   rules:
     - http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontweb-lesson-prod-svc
-            port: 80
-      - path: /api/blue
+      - path: /blue
         pathType: Prefix
         backend:
           service:
             name: backweb-lesson-users-svc
             port:
               number: 8080
-      - path: /api/green
+    - http:
+      paths:
+      - path: /green
         pathType: Prefix
         backend:
           service:
