@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: fbackweb-lesson-products-app
-        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:server-1
+        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:server-products
         ports:
         - containerPort: 3000
 ---
