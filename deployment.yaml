@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: frontweb-lesson-prod-app
-        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:test-5
+        image: gcr.io/crack-adapter-372504/gke-cicd-test-prod:frontend
         ports:
         - containerPort: 3000
 ---
