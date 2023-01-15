@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-name: nginx-ingress
+metadata:
+  name: nginx-ingress
   annotations:
-    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.global-static-ip-name: "lesson-prod-ip"
 spec:
-  ingressClassName: test
   rules:
   - http:
       paths:
