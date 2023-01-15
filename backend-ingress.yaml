@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Ingress
 metadata:
-  name: hello-ingress-staticip
+  name: backend-lesson-ingress-staticip
   annotations:
     kubernetes.io/ingress.global-static-ip-name: "lesson-prod-ip"
 spec:
@@ -10,9 +10,9 @@ spec:
       paths:
       - path: /users/*
         backend:
-          serviceName: users-node-svc
+          serviceName: backweb-lesson-users-svc
           servicePort: 80
       - path: /products/*
         backend:
-          serviceName: products-node-svc
+          serviceName: backweb-lesson-products-svc
           servicePort: 80
