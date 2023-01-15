@@ -1,16 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-ingress
+  name: hello-ingress-staticip
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "lesson-prod-ip"
 spec:
-  rules
+  rules:
   - http:
-    paths:
-    - path: /users/*
-      backend:
-        serviceName: backweb-lesson-users-svc
-        servicePort: 80
-    - path: /products/*
-      backend:
-        serviceName: backweb-lesson-products-svc
-        servicePort: 80
+      paths:
+      - path: /users/*
+        backend:
+          serviceName: users-node-svc
+          servicePort: 80
+      - path: /products/*
+        backend:
+          serviceName: products-node-svc
+          servicePort: 80
